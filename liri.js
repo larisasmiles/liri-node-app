@@ -7,7 +7,7 @@ if (command === 'my-tweets'){
     var tweety = require('twitter'); // this is how we import the tweety package
     var config = require('./keys.js') //this is we import the config 
     //file which is a js file which contains the keys ans tokens
-    var twitter = new Twitter(config); //this is the object of tweety 
+    var twitter = new tweety(config); //this is the object of tweety 
     
     var params = {
     // q: 'statuses/user_timeline',
@@ -60,21 +60,21 @@ else if (command === 'movie-this'){
       };
 
       // Then run a request to the OMDB API 
-      request("http://www.omdbapi.com/?t="+ process.argv[3]+"&y=&plot=short&apikey=trilogy", function(error, response, body) {
+//       request("http://www.omdbapi.com/?t="+ process.argv[3]+"&y=&plot=short&apikey=trilogy", function(error, response, body) {
      
-        if (!error && response.statusCode === 200) {
+//         if (!error && response.statusCode === 200) {
       
-          console.log("\n Title of the Movie: "+JSON.parse(body).Title+
-                      "\n Year the movie came out: "+JSON.parse(body).Year+
-                      "\n IMDB Rating of the movie: "+JSON.parse(body).imdbRating+
-                      "\n Rotten Tomatoes Rating of the movie: "+JSON.parse(body).Value+
-                      "\n Country where the movie was produced: "+ JSON.parse(body).Country+
-                      "\n Language of the movie: "+JSON.parse(body).Language+
-                      "\n Plot of the Move: "+JSON.parse(body).Plot+
-                      "\n Actors in the movie: "+JSON.parse(body).Actors);            
-        }
-      });
-}
+//           console.log("\n Title of the Movie: "+JSON.parse(body).Title+
+//                       "\n Year the movie came out: "+JSON.parse(body).Year+
+//                       "\n IMDB Rating of the movie: "+JSON.parse(body).imdbRating+
+//                       "\n Rotten Tomatoes Rating of the movie: "+JSON.parse(body).Value+
+//                       "\n Country where the movie was produced: "+ JSON.parse(body).Country+
+//                       "\n Language of the movie: "+JSON.parse(body).Language+
+//                       "\n Plot of the Move: "+JSON.parse(body).Plot+
+//                       "\n Actors in the movie: "+JSON.parse(body).Actors);            
+//         }
+//       });
+// }
   //write in log.txt
   var fs = require("fs");
   fs.appendFile("log.txt", "\n" + command + "  "+ process.argv[3], err =>{
